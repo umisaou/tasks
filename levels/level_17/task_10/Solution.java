@@ -20,6 +20,5 @@ public class Solution {
 
            CRUD.work(args);
 
-
     }
 }
