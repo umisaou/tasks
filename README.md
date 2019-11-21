@@ -1,5 +1,2 @@
-#################################################
 
-#Several solved tasks from the course on JavaRush.
-
-#################################################
+# Several solved tasks from the course on JavaRush.
