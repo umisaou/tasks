@@ -1,2 +1,2 @@
 
-# Several solved tasks from the course on JavaRush.
+# Several completed tasks of JavaRush course.
