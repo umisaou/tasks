@@ -21,7 +21,7 @@ CrUD - Create, Update, Delete.
 
 **id** соответствует индексу в списке.  
 Все люди должны храниться в **allPeople**.  
-Используйте ***Locale.ENGLISH*** в качестве второго параметра для **SimpleDateFormat**.
+Используйте `Locale.ENGLISH` в качестве второго параметра для **SimpleDateFormat**.
 
 **Пример параметров:**
 <pre>
