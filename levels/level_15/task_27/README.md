@@ -12,16 +12,24 @@
 **Пример 1**
 
 **Ввод:**  
+<pre>
 http://javarush.ru/alpha/index.html?lvl=15&view&name=Amigo
+</pre>
 
 **Вывод:**  
+<pre>
 lvl view name
+</pre>
 
 **Пример 2**
 
 **Ввод:**  
+<pre>
 http://javarush.ru/alpha/index.html?obj=3.14&name=Amigo
+</pre>
 
 **Вывод:**  
+<pre>
 obj name  
 double: 3.14
+</pre>
