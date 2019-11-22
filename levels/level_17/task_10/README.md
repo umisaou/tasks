@@ -3,10 +3,12 @@
 CrUD - Create, Update, Delete.
 
 Программа запускается с одним из следующих наборов параметров:
-* -c name sex bd
-* -u id name sex bd
-* -d id
-* -i id
+<pre>
+-c name sex bd
+-u id name sex bd
+-d id
+-i id
+</pre>
 
 Значения параметров:  
 **name** - имя, String  
@@ -21,8 +23,12 @@ CrUD - Create, Update, Delete.
 Все люди должны храниться в **allPeople**.  
 Используйте ***Locale.ENGLISH*** в качестве второго параметра для **SimpleDateFormat**.
 
-**Пример параметров:**  
+**Пример параметров:**
+<pre>
 -c Миронов м 15/04/1990
+</pre>
 
 **Пример вывода для параметра -і:**  
+<pre>
 Миронов м 15-Apr-1990
+</pre>
