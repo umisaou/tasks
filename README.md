@@ -2,7 +2,7 @@
 # Several completed tasks of JavaRush course.
 
 
-Total completed tasks of course. - 902.  
+Total completed tasks of course - 902.  
 Loaded tasks on GitHub - 20.
 
 
