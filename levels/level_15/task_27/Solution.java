@@ -14,34 +14,34 @@ public class Solution {
         BufferedReader r = new BufferedReader(new InputStreamReader(System.in));
         ArrayList<String> list = new ArrayList<>();
         String url = r.readLine();
-        String parametr = "";
+        String parameter = "";
         String alert = "";
-        boolean isObject = false;
-        boolean isParametr = false;
+        boolean inObject = false;
+        boolean inParameter = false;
         for (int i = 0; i < url.length(); i++) {
 
             if (url.charAt(i) == '&' || url.charAt(i) == '?') {
-                if (isParametr)
-                    list.add(parametr);
-                isParametr = true;
-                parametr = "";
-                if (isObject)
-                    isObject = false;
+                if (inParameter)
+                    list.add(parameter);
+                inParameter = true;
+                parameter = "";
+                if (inObject)
+                    inObject = false;
                 if (url.substring(i + 1, i + 4).equals("obj")) {
-                    isObject = true;
+                    inObject = true;
                 }
 
 
                 continue;
             } else if (url.charAt(i) == '=') {
-                isParametr = false;
-                list.add(parametr);
+                inParameter = false;
+                list.add(parameter);
                 continue;
             }
 
-            if (isParametr) {
-                parametr += url.charAt(i);
-            } else if (isObject) {
+            if (inParameter) {
+                parameter += url.charAt(i);
+            } else if (inObject) {
                 alert += url.charAt(i);
             }
         }
@@ -49,11 +49,10 @@ public class Solution {
             System.out.print(list.get(i) + " ");
         }
         if (!(alert.isEmpty())) {
-            try {
-                alert(Double.parseDouble(alert));
-            } catch (NumberFormatException e) {
-                alert(alert);
-            }
+            if( alert.contains("."))
+               alert(Double.parseDouble(alert));
+           else
+               alert(alert);
         }
 
 
