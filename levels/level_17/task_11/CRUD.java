@@ -10,7 +10,8 @@ public class CRUD {
             Solution.allPeople.add(Person.createMale(name, date));
         } else
             Solution.allPeople.add(Person.createFemale(name, date));
-        return Solution.allPeople.size() - 1;
+        int newPersonID = Solution.allPeople.size() - 1;
+        return newPersonID;
     }
 
     private static void update(int id, String name, Sex sex, Date date) {
@@ -39,7 +40,7 @@ public class CRUD {
     }
 
     public static void work(String[] s) throws Exception {
-        int numberOfParam = s.length - 1;
+        int numberOfParam;
         int id;
         String name = "";
         Sex sex;
@@ -69,11 +70,13 @@ public class CRUD {
                 update(id, name, sex, date);
             }
         } else if (s[0].equals("-d")) {
+            numberOfParam = s.length - 1;
             for (int i = 0; i < numberOfParam; i++) {
                 id = Integer.parseInt(s[1]);
                 delete(id);
             }
         } else if (s[0].equals("-i")) {
+            numberOfParam = s.length - 1;
             for (int i = 0; i < numberOfParam; i++) {
                 id = Integer.parseInt(s[1]);
                 System.out.println(inform(id));
