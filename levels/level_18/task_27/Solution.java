@@ -12,6 +12,7 @@ public class Solution {
     public static void main(String[] args) throws Exception {
         BufferedReader consoleReader = new BufferedReader(new InputStreamReader(System.in));
         String fileName = consoleReader.readLine();
+        consoleReader.close();
         if (args.length > 1 && args[0].equals("-c")) {
 
             String parameters = getID(fileName) + getProductName(args) + getPrice(args) + getQuantity(args);
@@ -32,8 +33,7 @@ public class Solution {
                 break;
             listID.add(Integer.parseInt(s.split("\\D")[0]));
         }
-        Collections.sort(listID);
-        String id = (listID.get(listID.size() - 1) + 1) + "";
+        String id = (listID.get(Collections.max(listID)) + 1) + "";
         if (id.length() > 8)
             id = id.substring(0, 8);
         else if (id.length() < 8)
