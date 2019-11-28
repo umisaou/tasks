@@ -12,7 +12,7 @@ public class Solution {
         BufferedReader consoleReader = new BufferedReader(new InputStreamReader(System.in));
         ArrayList<String> buffer = new ArrayList<>();
         String fileName = consoleReader.readLine();
-        if (args.length > 0) {
+        if (args.length > 1) {
             BufferedReader fileReader = new BufferedReader(new FileReader(fileName));
             while (true) {
                 String s = fileReader.readLine();
