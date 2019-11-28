@@ -10,7 +10,8 @@ public class CRUD {
             Solution.allPeople.add(Person.createMale(name, date));
         } else
             Solution.allPeople.add(Person.createFemale(name, date));
-        return Solution.allPeople.size() - 1;
+        int newPersonID = Solution.allPeople.size() - 1;
+        return newPersonID;
     }
 
     private static void update(int id, String name, Sex sex, Date date) {
