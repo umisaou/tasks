@@ -40,7 +40,7 @@ public class CRUD {
     }
 
     public static void work(String[] s) throws Exception {
-        int numberOfParam = s.length - 1;
+        int numberOfParam;
         int id;
         String name = "";
         Sex sex;
@@ -76,6 +76,7 @@ public class CRUD {
                 }
                 break;
             case "-d":
+                numberOfParam = s.length - 1;
                 for (int i = 0; i < numberOfParam; i++) {
                     id = Integer.parseInt(s[1 + i]);
                     synchronized (Solution.allPeople) {
@@ -84,6 +85,7 @@ public class CRUD {
                 }
                 break;
             case "-i":
+                numberOfParam = s.length - 1;
                 for (int i = 0; i < numberOfParam; i++) {
                     id = Integer.parseInt(s[1 + i]);
                     synchronized (Solution.allPeople) {
