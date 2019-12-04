@@ -6,9 +6,9 @@ package com.javarush.task.testing;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.TreeSet;
 
 public class Solution {
     public static void main(String[] args) throws Exception {
@@ -20,25 +20,25 @@ public class Solution {
                 break;
             String name = s.split(" ")[0];
             double value = Double.parseDouble(s.split(" ")[1]);
-            map.merge(name, value, (aDouble, aDouble2) -> aDouble + aDouble2);
+            map.merge(name, value, Double::sum);
 
         }
         fileReader.close();
 
-        TreeSet<String> set = new TreeSet<>();
+        ArrayList<String> result = new ArrayList<>();
         double max = 0;
         for (Map.Entry<String, Double> pair : map.entrySet()) {
 
             if (pair.getValue() > max) {
-                set.clear();
+                result.clear();
                 max = pair.getValue();
-                set.add(pair.getKey());
+                result.add(pair.getKey());
             } else if (pair.getValue() == max) {
-                set.add(pair.getKey());
+                result.add(pair.getKey());
             }
         }
-
-        for (String s : set) {
+        result.sort(String::compareTo);
+        for (String s : result) {
             System.out.println(s);
         }
     }
