@@ -46,17 +46,18 @@ public class Solution {
             }
         }
         for (int i = 0; i < buffer.size(); i++) {
-            tags.add(buffer.get(i));
-            int countTags = buffer.get(i).split("</").length - 1;
+            tag = buffer.get(i);
+            tags.add(tag);
+            int countTags = tag.split("</").length - 1;
             if (countTags > 1) {
                 for (int j = 0; j < countTags - 1; j++) {
-                    StringBuffer s = new StringBuffer();
-                    s.append(tags.get(tags.size() - 1).replaceFirst("<.+?>", ""));
-                    String str = s.reverse().toString().replaceFirst(">.+?<", "");
-                    s.delete(0, s.length());
-                    s.append(str);
-                    s.reverse();
-                    tags.add(s.toString());
+                    StringBuilder sb = new StringBuilder();
+                    sb.append(tags.get(tags.size() - 1).replaceFirst("<.+?>", ""));
+                    String str = sb.reverse().toString().replaceFirst(">.+?<", "");
+                    sb.delete(0, sb.length());
+                    sb.append(str);
+                    sb.reverse();
+                    tags.add(sb.toString());
                 }
             }
         }
