@@ -21,25 +21,31 @@ public class Solution {
         consoleReader.close();
         BufferedReader fileReader1 = new BufferedReader(new FileReader(name1));
         BufferedReader fileReader2 = new BufferedReader(new FileReader(name2));
-        ArrayList<String> file1 = new ArrayList<>();
-        ArrayList<String> file2 = new ArrayList<>();
+        ArrayList<String> list1 = new ArrayList<>();
+        ArrayList<String> list2 = new ArrayList<>();
         while (true) {
             String s1 = fileReader1.readLine();
             String s2 = fileReader2.readLine();
             if (s1 != null)
-                file1.add(s1);
+                list1.add(s1);
             if (s2 != null)
-                file2.add(s2);
+                list2.add(s2);
             if (s1 == null && s2 == null)
                 break;
         }
-        
+        fileReader1.close();
+        fileReader2.close();
+
         int i, j;
-        for (i = 0, j = 0; i < file1.size() && j < file2.size(); ) {
-            String s1 = file1.get(i);
-            String s2 = file2.get(j);
-            if (!(s1.equals(s2))) {
-                if (file1.get(i + 1).equals(s2)) {
+        for (i = 0, j = 0; i < list1.size() && j < list2.size(); ) {
+            String s1 = list1.get(i);
+            String s2 = list2.get(j);
+            if (s1.equals(s2)) {
+                lines.add(new LineItem(Type.SAME, s1));
+                i++;
+                j++;
+            } else {
+                if (list1.get(i + 1).equals(s2)) {
                     lines.add(new LineItem(Type.REMOVED, s1));
                     i++;
 
@@ -47,22 +53,18 @@ public class Solution {
                     lines.add(new LineItem(Type.ADDED, s2));
                     j++;
                 }
-                continue;
-            } else
-                lines.add(new LineItem(Type.SAME, s1));
-            i++;
-            j++;
+            }
         }
-        if (i < file1.size()) {
-            String s = file1.get(i);
+
+        if (i < list1.size()) {
+            String s = list1.get(i);
             lines.add(new LineItem(Type.REMOVED, s));
-        } else if (j < file2.size()) {
-            String s = file2.get(j);
+        } else if (j < list2.size()) {
+            String s = list2.get(j);
             lines.add(new LineItem(Type.ADDED, s));
         }
 
-        fileReader1.close();
-        fileReader2.close();
+
     }
 
     public static enum Type {
